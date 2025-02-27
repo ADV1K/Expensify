@@ -1,27 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-
-interface Transaction {
-  id: string;
-  category: string;
-  subcategory?: string;
-  amount: number;
-  type: "expense" | "income";
-  date: string;
-}
-
-interface DailyTransactions {
-  totalIncome: number;
-  totalExpense: number;
-  items: Transaction[];
-}
-
-interface TransactionsByDate {
-  [date: string]: DailyTransactions;
-}
-
-interface TransactionListProps {
-  transactions: TransactionsByDate;
-}
 
 import { IndianRupeeIcon } from "lucide-react";
 import { useContext } from "react";

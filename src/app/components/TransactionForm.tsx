@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useActionState, useState, useContext } from "react";
+import { useContext } from "react";
 import { TransactionCategory } from "@/types";
 import {
   CalendarIcon,
@@ -11,11 +12,7 @@ import {
   Trash2Icon,
   XIcon,
 } from "lucide-react";
-import {
-  createOrUpdateTransaction,
-  createTransaction,
-  deleteTransaction,
-} from "@/app/actions";
+import { createOrUpdateTransaction, deleteTransaction } from "@/app/actions";
 import { ModalContext } from "@/app/contexts/modal-context";
 import { incomeCategories, expenseCategories } from "@/app/constants";
 
@@ -25,7 +22,6 @@ export default function TransactionForm() {
     note,
     date,
     amount,
-    setId,
     setNote,
     setDate,
     isExpense,
@@ -210,7 +206,7 @@ export default function TransactionForm() {
             <div className="flex border-b p-2">
               <label
                 className="flex cursor-pointer items-center gap-1 rounded-md px-2 py-2 text-sm hover:bg-base-200"
-                onClick={(e) => {
+                onClick={() => {
                   const input = document.getElementById("date-switcher") as any;
                   input.showPicker();
                 }}

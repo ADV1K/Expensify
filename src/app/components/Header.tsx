@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import {
@@ -13,12 +14,10 @@ import { lightTheme, darkTheme } from "@/app/constants";
 export default function Header({ income, expense }: any) {
   const cashflow = income - expense;
 
-  const [theme, setTheme] = useState(lightTheme);
-  if (typeof window !== "undefined") {
-    const [theme, setTheme] = useState(
-      localStorage?.getItem("theme") ?? lightTheme,
-    );
-  }
+  let defaultTheme = lightTheme;
+  if (typeof window !== "undefined")
+    defaultTheme = localStorage?.getItem("theme") ?? lightTheme;
+  const [theme, setTheme] = useState(defaultTheme);
 
   useEffect(() => {
     if (typeof window !== "undefined") localStorage?.setItem("theme", theme);
