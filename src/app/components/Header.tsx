@@ -10,7 +10,7 @@ import {
 import { useEffect, useState } from "react";
 import { lightTheme, darkTheme } from "@/app/constants";
 
-export default function Header({ income, expense }) {
+export default function Header({ income, expense }: any) {
   const cashflow = income - expense;
 
   const [theme, setTheme] = useState(lightTheme);

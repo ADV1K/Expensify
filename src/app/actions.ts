@@ -101,7 +101,7 @@ export async function updateTransaction(
                 subcategory: formData.get("subcategory") as string,
                 note: formData.get("note") as string,
             })
-            .where({ id: Number(formData.get("id")) });
+            .where(eq(transactionTable.id, Number(formData.get("id"))));
 
         return {
             success: true,

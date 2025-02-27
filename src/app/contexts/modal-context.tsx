@@ -17,7 +17,7 @@ export default function ModalContextProvider({ children }: any) {
   );
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
 
-  function setIsModalOpenPls(value, transaction) {
+  function setIsModalOpenPls(value: any, transaction: any) {
     if (transaction) {
       console.log(transaction);
       setId(transaction.id);

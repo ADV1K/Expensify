@@ -37,7 +37,7 @@ export default function TransactionForm() {
     setSelectedCategory,
     selectedSubCategory,
     setSelectedSubCategory,
-  } = useContext(ModalContext);
+  }: any = useContext(ModalContext);
 
   // const [state, formAction, isLoading] = useActionState(
   //   createOrUpdateTransaction,
@@ -185,8 +185,8 @@ export default function TransactionForm() {
               {/* SubCategory */}
               <div className="join join-vertical w-1/2 divide-y divide-base-100 rounded-none">
                 {(isExpense
-                  ? expenseCategories[selectedCategory] || []
-                  : incomeCategories[selectedCategory] || []
+                  ? (expenseCategories as any)[selectedCategory] || []
+                  : (incomeCategories as any)[selectedCategory] || []
                 ).map((subcategory: string) => (
                   <label
                     key={subcategory}
